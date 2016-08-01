@@ -1,0 +1,71 @@
+
+
+<div class="container fluid">
+	
+	<div class="jumbotron">
+	<h1 class="text-center" style="color:#F0F8FF">QRCodeMaker</h1>
+	
+
+
+     <%=form_tag("/",method:'get') do %>
+	<div class="text-center">
+	<%=label_tag(:term,"Type Text or URL:")%>
+	<p><%=text_field_tag(:term)%></p>
+	<p><%=submit_tag("Search",:class=>"btn-primary")%></p><br>
+	<%end%>
+		
+   </div>
+</div>
+
+
+<style type="text/css">
+ table {
+  border-width: 0;
+  border-style: none;
+  border-color: #0000ff;
+  border-collapse: collapse;
+ }
+ td {
+   border-width: 0;
+   border-style: none;
+   border-color: #0000ff;
+   border-collapse: collapse;
+   padding: 0;
+   margin: 0;
+   width: 10px;
+   height: 10px;
+ }
+ td.black { background-color: #000; }
+ td.white { background-color: #fff; }
+</style>
+<div class="text-center bg1">
+
+<div class="row">
+<div class="col-lg-3"></div>
+<div class="col-lg-3">
+<br><br>
+ <table>
+ <% unless params[:term].nil? %>
+ <% @qr.modules.each_index do |x| -%>
+   <tr>
+   <% @qr.modules.each_index do |y| -%>
+    <% if @qr.dark?(x,y) -%>
+    <td class="black"/>
+    <% else -%>
+    <td class="white"/>
+    <% end -%>
+   <% end -%>
+   </tr>
+ <% end -%>
+
+</table>
+<br><br>
+</div>
+<br><br>
+<h1><%=button_to "Download as PNG" ,root_path+"png", method: "post",class:"button"%></h1>
+
+ <% end%>
+</div>
+
+</div>
+  	
