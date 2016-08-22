@@ -13,4 +13,4 @@ This Web Application is hosted at
 
 https://qrcodemaker.herokuapp.com
 
-for more details visit ##http://shawnrebello.com
+for more details and screenshots ,visit http://shawnrebello.com
